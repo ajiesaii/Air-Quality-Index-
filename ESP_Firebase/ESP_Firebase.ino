@@ -4,12 +4,12 @@
 #include <WiFiUdp.h>
 
 // Kredensial WiFi
-const char* ssid = "No Internet Acces";
-const char* pass = "0000012345";
+const char* ssid = "";
+const char* pass = "";
 
 // Kredensial Firebase
-const char* firebaseHost = "iot-and-ml-7ae55-default-rtdb.firebaseio.com";
-const char* firebaseAuth = "I8jPPAvdHN6IE0Ek3J0YNBbSFS461De9uryH0h4w";
+const char* firebaseHost = "";
+const char* firebaseAuth = "";
 
 // Waktu
 WiFiUDP ntpUDP;
