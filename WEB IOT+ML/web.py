@@ -11,13 +11,13 @@ app = Flask(__name__)
 def main():
     #inisialisasi firebase
     firebaseConfig = {
-        "apiKey": "AIzaSyAyPNnALVGV7jVHocJhdV4lmFP_UNi8c9c",
-        "authDomain": "iot-and-ml-7ae55.firebaseapp.com",
-        "databaseURL": "https://iot-and-ml-7ae55-default-rtdb.firebaseio.com",
-        "projectId": "iot-and-ml-7ae55",
-        "storageBucket": "iot-and-ml-7ae55.appspot.com",
-        "messagingSenderId": "512631888265",
-        "appId": "1:512631888265:web:6b2884401929a5fa4da958"
+        "apiKey": "",
+        "authDomain": "",
+        "databaseURL": "",
+        "projectId": "",
+        "storageBucket": "",
+        "messagingSenderId": "",
+        "appId": ""
 }
 
     firebase = pyrebase.initialize_app(firebaseConfig)
