@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Air Quality Index |</title>
+    <link rel="stylesheet" href="/static/buruk.css" />
+</head>
+
+<body>
+    <div class="desktop">
+        <div class="div">
+            <div class="text-wrapper">Air Quality Index |</div>
+            </div>
+            <div class="group-5">
+                <div class="text-wrapper-11">Purwakarta, Indonesia</div>
+                <img class="icon-location" src="/static/pic/loc.png" />
+                <div class="text-wrapper-12">24 Desember 2023</div>
+            </div>
+            <div class="overlap">
+                <div class="overlap-group">
+                    <img class="blue-and-white" src="/static/pic/sedang.png" />
+                        <!-- display CO2 -->
+                    <div class="group">
+                        <script>
+                            // Auto-refresh every 5 seconds (5000 milliseconds)
+                            setInterval(function(){
+                                location.reload();
+                            }, 10000);
+                        </script>
+                        <div class="overlap-group-2">
+                            <div class="text-wrapper-2">CO</div>
+                            <div class="text-wrapper-3" class="value" id="CO"></div>
+                            <div class="text-wrapper-4">Carbon Monoxide</div>
+                        </div>   
+                    </div>     
+                        <!-- display CO -->
+                    <div class="overlap-wrapper">
+                        <div class="overlap-group-2">
+                            <div class="text-wrapper-5">CO 2</div>
+                            <div class="text-wrapper-3" class="value" id="CO2"></div>
+                            <div class="text-wrapper-4">Carbon Dioxide</div>
+                        </div>
+                    </div>
+                    <div class="overlap-group-wrapper">
+                        <div class="div-wrapper">
+                            <div class="text-wrapper-6" id="condition">Buruk</div>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+        </div>
+        <!-- the scripts for products you want to access must be added-->
+
+	<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    
+    <script type="text/javascript" src="http://ajax.googleapls.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
+
+	<script type="module">
+	  // Import the functions you need from the SDKs you need
+	  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
+	  // TODO: Add SDKs for Firebase products that you want to use
+	  // https://firebase.google.com/docs/web/setup#available-libraries
+
+	  // Web app's Firebase configuration 
+	  const firebaseConfig = {
+	    apiKey: "AIzaSyAyPNnALVGV7jVHocJhdV4lmFP_UNi8c9c",
+        authDomain: "iot-and-ml-7ae55.firebaseapp.com",
+        databaseURL: "https://iot-and-ml-7ae55-default-rtdb.firebaseio.com",
+        projectId: "iot-and-ml-7ae55",
+        storageBucket: "iot-and-ml-7ae55.appspot.com",
+        messagingSenderId: "512631888265",
+        appId: "1:512631888265:web:6b2884401929a5fa4da958"
+	  };
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+
+// getting reference to the database
+const database = firebase.database();
+
+//getting reference to the data we want
+let dataRef1 = database.ref('CO');
+let dataRef2 = database.ref('CO2');
+
+//fetch the data
+dataRef1.on('value', function(getdata1){
+  let co = getdata1.val();
+  document.getElementById('CO').innerHTML = co;
+});
+
+ dataRef2.on('value', function(getdata2){
+  let co2 = getdata2.val();
+  document.getElementById('CO2').innerHTML = co2;
+});
+	</script>
+</body>
+</html>
